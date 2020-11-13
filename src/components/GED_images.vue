@@ -11,31 +11,16 @@
       </form>
     </div>
     <div class="container">
-      <!--<div v-for="(image, index) in images" :key="`img-${index}`">
-        {{ image.name + ' (' + image.desc + ')' }}
-        <img :src="image.data" style="width:200px;" />
-      </div>-->
       <div class="card-deck">
         <div class="card" v-for="(image, index) in images" :key="`img-${index}`">
           <img :src="image.data" class="card-img-top" :alt="image.name">
           <div class="card-body">
             <h5 class="card-title">{{ image.name }}</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">{{ image.desc }}</p>
+            <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
           </div>
         </div>
       </div>
-      <!--
-      <div class="row">
-        <div class="col-sm d-flex" v-for="(image, index) in images" :key="`img-${index}`" style="height: 18rem;">
-        <div class="card flex-fill">
-          <img :src="image.data" class="card-img-top" :alt="image.name">
-          {{ image.name }}
-          
-        </div>
-        </div>
-      </div>
-      -->
     </div>
   </div>
 </template>
@@ -74,8 +59,6 @@ export default {
     renderImages() {
       axios.get('http://localhost:4000/api/images', {
       }).then((res) => {
-        //this.images = res.data.images
-
         res.data.images.forEach(image => {
           let bytes = new Uint8Array(image.body.data.data)
           let binary = bytes.reduce((data,b) => data += String.fromCharCode(b), '')
@@ -86,7 +69,6 @@ export default {
             data: base64img
           });
         });
-
         console.log(res)
       })
     }

@@ -1,33 +1,13 @@
 <template>
   <div id="app">
-    <!--<img alt="Vue logo" src="./assets/logo.png">-->
-    <img alt="Vue logo" src="./assets/mdb_logo.jpg" style="width:20%;">
-    <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <GedImages />
-    <GedPDFs />
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/images">Images</router-link> |
+      <router-link to="/PDFs">PDFs</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-//import HelloWorld from './components/HelloWorld.vue'
-import GedImages from './components/GED_images.vue'
-import GedPDFs from './components/GED_PDFs.vue'
-/*
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-*/
-export default {
-  name: 'App',
-  components: {
-    GedImages,
-    GedPDFs
-  }
-}
-</script>
 
 <style>
 #app {
@@ -36,6 +16,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
