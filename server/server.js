@@ -2,7 +2,8 @@ let express = require('express'),
   mongoose = require('mongoose'),
   cors = require('cors'),
   bodyParser = require('body-parser'),
-  dbConfig = require('./db/database');
+  //dbConfig = require('./db/local');
+  dbConfig = require('./db/atlas');
 
 
 // Routes to Handle Request

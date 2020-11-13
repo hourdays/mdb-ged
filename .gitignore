@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 /dist
-
+/server/db/atlas.js
+/server/db/cloud.js
 
 # local env files
 .env.local
