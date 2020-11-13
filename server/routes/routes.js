@@ -5,7 +5,7 @@ let express = require('express'),
   path = require('path'),
   router = express.Router();
 
-const DIR = './public/';
+const DIR = './uploads/';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -31,7 +31,7 @@ var upload = multer({
     cb(null, true);
   }
 });
-
+/*
 // User model
 let User = require('../models/User');
 // User model
@@ -64,6 +64,7 @@ router.post('/file-upload', upload.array('files', 10), (req, res, next) => {
       });
   })
 })
+*/
 /*
 router.get("/", (req, res, next) => {
   User.find().then(data => {
@@ -83,7 +84,7 @@ router.post('/image-upload', upload.single('image'), (req, res, next) => {
     name: req.file.filename, 
     desc: req.file.mimetype, 
     body: { 
-      data: fs.readFileSync(path.join('./public/' + req.file.filename)),
+      data: fs.readFileSync(path.join(DIR + req.file.filename)),
       contentType: req.file.mimetype
     }
   });
@@ -118,7 +119,7 @@ router.post('/pdf-upload', upload.single('pdf'), (req, res, next) => {
     name: req.file.filename, 
     desc: req.file.mimetype, 
     body: { 
-      data: fs.readFileSync(path.join('./public/' + req.file.filename)),
+      data: fs.readFileSync(path.join(DIR + req.file.filename)),
       contentType: req.file.mimetype
     }
   });
