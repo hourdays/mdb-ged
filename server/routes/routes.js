@@ -136,4 +136,13 @@ router.post('/pdf-upload', upload.single('pdf'), (req, res, next) => {
   })
 });
 
+router.get("/PDFs", (req, res, next) => {
+  PDF.find().then(data => {
+    res.status(200).json({
+      message: "PDFs fetched!",
+      PDFs: data
+    });
+  });
+});
+
 module.exports = router;
