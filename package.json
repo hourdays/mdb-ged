@@ -1,6 +1,10 @@
 {
-  "name": "mdb-ged",
-  "author": "@hourdays",
+  "name": "@hourdays/mdb-ged",
+  "author": {
+    "name": "Hugues Journeau",
+    "email": "hjourneau@gmail.com",
+    "url": "https://www.linkedin.com/in/hourdays/"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
